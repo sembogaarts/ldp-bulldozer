@@ -2,5 +2,6 @@
 
 abstract class BulldozerOptions
 {
-    const ENABLED = 'ldp-bulldozer-enabled';
+    const GIPHY_API_KEY = 'ldp_bulldozer_giphy_api_key';
+    const ENABLED = 'ldp_bulldozer_enabled';
 }

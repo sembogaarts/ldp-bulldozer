@@ -10,11 +10,26 @@
     <link rel="stylesheet" href="<?php echo $css_url ?>">
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Libs -->
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
 </head>
 <body>
 
+<img class="logo" src="<?php echo $logo_url ?>" alt="">
+
+<div class="iframe-wrapper">
+    <iframe src="<?php echo $gif_url ?>"></iframe>
+</div>
 
 <h1>Nog even geduld, de website is bijna klaar.</h1>
+
+<canvas class="confetti" id="my-canvas"></canvas>
+
+<script>
+    var confettiSettings = { target: 'my-canvas' };
+    var confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+</script>
 
 </body>
 </html>

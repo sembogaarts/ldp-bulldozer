@@ -3,3 +3,45 @@ body {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
+
+.iframe-wrapper {
+    width: 175px;
+    height: 175px;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin: 0 auto 30px auto;
+    display: block;
+    border: 5px solid #817dcc;
+}
+
+.iframe-wrapper iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    height: 175px;
+    transform: translate(-50%, 0);
+}
+
+h1 {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 45px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

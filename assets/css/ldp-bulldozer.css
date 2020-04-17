@@ -1,2 +1,29 @@
 .ldp-bulldozer {
-  padding: 20px; }
+  margin-left: -20px; }
+  .ldp-bulldozer header {
+    background-color: #fff;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    line-height: 80px;
+    padding: 0 20px; }
+    .ldp-bulldozer header img {
+      height: 50px;
+      margin-top: 15px;
+      display: inline-block; }
+  .ldp-bulldozer main {
+    margin: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    overflow: hidden; }
+    .ldp-bulldozer main .top {
+      background-color: #3E3C77;
+      color: #fff;
+      padding: 10px 20px; }
+      .ldp-bulldozer main .top h1 {
+        color: #fff; }
+    .ldp-bulldozer main .tabs {
+      background-color: #817dcc; }
+    .ldp-bulldozer main .content {
+      background-color: #fff;
+      padding: 20px; }

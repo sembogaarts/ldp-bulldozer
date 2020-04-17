@@ -76,6 +76,9 @@ class LDP_BULLDOZER
     }
 
     private function load_theme($theme) {
+        //
+        $logo_url =  $this->_theme_dir . "assets/imgs/logo_white.png";
+        $gif_url = $this->random_gif('waiting');
         // Set global variables
         $css_url = $this->_theme_dir . "themes/${theme}/bulldozer-${theme}.css";
         // Render the theme
@@ -86,8 +89,10 @@ class LDP_BULLDOZER
     {
 
         $status = isset($_POST[BulldozerOptions::ENABLED]) ? true : false;
+        $giphy_api_key = sanitize_text_field($_POST[BulldozerOptions::GIPHY_API_KEY]);
 
         update_option(BulldozerOptions::ENABLED, $status);
+        update_option(BulldozerOptions::GIPHY_API_KEY, $giphy_api_key);
 
         return true;
     }
@@ -106,7 +111,9 @@ class LDP_BULLDOZER
      */
     public function install()
     {
+        // Add options to Wordpress
         add_option(BulldozerOptions::ENABLED, false);
+        add_option(BulldozerOptions::GIPHY_API_KEY, '');
     }
 
     /**
@@ -124,10 +131,24 @@ class LDP_BULLDOZER
         );
     }
 
+    public function random_gif($q) {
+        // Define the API Key
+        $api_key = get_option(BulldozerOptions::GIPHY_API_KEY);
+        // Send request
+        $rest = file_get_contents("https://api.giphy.com/v1/gifs/search?api_key=" . $api_key . "&q=" . $q . "&rating=g");
+        // Get the data
+        $body = json_decode($rest);
+        // Select random Gif
+        $gif = $body->data[rand(0, count($body->data) - 1)];
+        // Return URL
+        return $gif->embed_url;
+    }
+
     public function bulldozer_home()
     {
         // Get variables
         $enabled = get_option(BulldozerOptions::ENABLED);
+        $logo_url =  $this->_theme_dir . "assets/imgs/logo.png";
         // Include view
         include plugin_dir_path(__FILE__) . 'views/bulldozer-home.php';
     }
