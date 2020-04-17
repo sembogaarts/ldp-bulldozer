@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "watch": "node-sass -w src/sass -o out/css",
+    "build": "node-sass --output-style compressed src/sass/style.scss > out/css/style.css"
+  }
+}
