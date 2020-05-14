@@ -1,29 +1,113 @@
 .ldp-bulldozer {
-  margin-left: -20px; }
-  .ldp-bulldozer header {
-    background-color: #fff;
-    width: 100%;
-    height: 80px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    line-height: 80px;
-    padding: 0 20px; }
-    .ldp-bulldozer header img {
-      height: 50px;
-      margin-top: 15px;
-      display: inline-block; }
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px 20px 20px 0;
+  color: black; }
+  .ldp-bulldozer header img {
+    height: 50px;
+    display: inline-block;
+    margin-bottom: 20px; }
   .ldp-bulldozer main {
-    margin: 20px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 6px;
     overflow: hidden; }
-    .ldp-bulldozer main .top {
-      background-color: #3E3C77;
-      color: #fff;
-      padding: 10px 20px; }
-      .ldp-bulldozer main .top h1 {
-        color: #fff; }
-    .ldp-bulldozer main .tabs {
-      background-color: #817dcc; }
+    .ldp-bulldozer main .ldp-tabs {
+      width: 100%;
+      height: 100px;
+      background-color: #311B92;
+      display: flex; }
+      .ldp-bulldozer main .ldp-tabs .ldp-tab {
+        width: 100px;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        justify-content: center;
+        border-bottom: 3px solid transparent; }
+        .ldp-bulldozer main .ldp-tabs .ldp-tab.active {
+          border-color: #E91E63; }
+        .ldp-bulldozer main .ldp-tabs .ldp-tab:hover {
+          border-color: #c4baf2; }
+        .ldp-bulldozer main .ldp-tabs .ldp-tab .ldp-tab-title,
+        .ldp-bulldozer main .ldp-tabs .ldp-tab .ldp-tab-icon {
+          margin: 0;
+          padding: 0;
+          line-height: initial; }
+        .ldp-bulldozer main .ldp-tabs .ldp-tab .ldp-tab-icon {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 30px;
+          margin-bottom: 5px; }
+        .ldp-bulldozer main .ldp-tabs .ldp-tab .ldp-tab-title {
+          color: #fff;
+          font-weight: bold;
+          margin: 0;
+          display: block;
+          padding: 0; }
     .ldp-bulldozer main .content {
       background-color: #fff;
       padding: 20px; }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px; }
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+input:checked + .slider {
+  background-color: #311B92; }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #311B92; }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px); }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px; }
+
+.slider.round:before {
+  border-radius: 50%; }
+
+.ldp-group {
+  vertical-align: top; }
+  .ldp-group td:nth-child(1) {
+    padding-right: 100px; }
+  .ldp-group .ldp-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: black; }
+  .ldp-group .ldp-help {
+    font-style: italic; }

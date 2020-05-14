@@ -50,7 +50,8 @@ class LDP_BULLDOZER
         }
     }
 
-    public function valid_url() {
+    public function valid_url()
+    {
         // Accept by default
         $intercept_url = true;
         // Allowed whitelist
@@ -63,11 +64,11 @@ class LDP_BULLDOZER
         $whitelist[] = explode('/', wp_login_url())[3];
         $whitelist[] = explode('/', admin_url())[3];
         // Check if the login page is active
-        foreach($whitelist as $allowed) {
+        foreach ($whitelist as $allowed) {
             // Check in the string
             $match = strpos($_SERVER['REQUEST_URI'], $allowed);
             // There is a match found!
-            if($match !== false) {
+            if ($match !== false) {
                 $intercept_url = false;
             }
         }
@@ -75,9 +76,10 @@ class LDP_BULLDOZER
         return $intercept_url;
     }
 
-    private function load_theme($theme) {
+    private function load_theme($theme)
+    {
         //
-        $logo_url =  $this->_theme_dir . "assets/imgs/logo_white.png";
+        $logo_url = $this->_theme_dir . "assets/imgs/logo_white.png";
         $gif_url = $this->random_gif('waiting');
         // Set global variables
         $css_url = $this->_theme_dir . "themes/${theme}/bulldozer-${theme}.css";
@@ -89,10 +91,10 @@ class LDP_BULLDOZER
     {
 
         $status = isset($_POST[BulldozerOptions::ENABLED]) ? true : false;
-        $giphy_api_key = sanitize_text_field($_POST[BulldozerOptions::GIPHY_API_KEY]);
+        $tenor_api_key = sanitize_text_field($_POST[BulldozerOptions::TENOR_API_KEY]);
 
         update_option(BulldozerOptions::ENABLED, $status);
-        update_option(BulldozerOptions::GIPHY_API_KEY, $giphy_api_key);
+        update_option(BulldozerOptions::TENOR_API_KEY, $tenor_api_key);
 
         return true;
     }
@@ -101,8 +103,10 @@ class LDP_BULLDOZER
     {
         // JS
         wp_enqueue_script('ldp-bulldozer-js', $this->_theme_dir . '/assets/js/ldp-bulldozer.js');
+        wp_enqueue_script('ldp-fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js');
         // CSS
         wp_enqueue_style('ldp-bulldozer-style', $this->_theme_dir . '/assets/css/ldp-bulldozer.css');
+        wp_enqueue_style('ldp-font', '//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
     }
 
     /**
@@ -113,7 +117,7 @@ class LDP_BULLDOZER
     {
         // Add options to Wordpress
         add_option(BulldozerOptions::ENABLED, false);
-        add_option(BulldozerOptions::GIPHY_API_KEY, '');
+        add_option(BulldozerOptions::TENOR_API_KEY, '');
     }
 
     /**
@@ -131,24 +135,30 @@ class LDP_BULLDOZER
         );
     }
 
-    public function random_gif($q) {
+    public function random_gif($q)
+    {
         // Define the API Key
-        $api_key = get_option(BulldozerOptions::GIPHY_API_KEY);
-        // Send request
-        $rest = file_get_contents("https://api.giphy.com/v1/gifs/search?api_key=" . $api_key . "&q=" . $q . "&rating=g");
-        // Get the data
-        $body = json_decode($rest);
-        // Select random Gif
-        $gif = $body->data[rand(0, count($body->data) - 1)];
-        // Return URL
-        return $gif->embed_url;
+        $api_key = get_option(BulldozerOptions::TENOR_API_KEY);
+        // If gifs are enabled
+        if ($api_key) {
+            // Send request
+            $rest = file_get_contents("https://api.tenor.com/v1/search?key=" . $api_key . "&q=" . $q . "&limit=10");
+            // Get the data
+            $body = json_decode($rest);
+            // Select random Gif
+            $gif = $body->results[rand(0, count($body->results) - 1)];
+            // Return URL
+            return $gif->media[0]->gif->url;
+        }
+        return null;
     }
 
     public function bulldozer_home()
     {
         // Get variables
         $enabled = get_option(BulldozerOptions::ENABLED);
-        $logo_url =  $this->_theme_dir . "assets/imgs/logo.png";
+        $tenor_api_key = get_option(BulldozerOptions::TENOR_API_KEY);
+        $logo_url = $this->_theme_dir . "assets/imgs/logo.png";
         // Include view
         include plugin_dir_path(__FILE__) . 'views/bulldozer-home.php';
     }

@@ -1,0 +1,16 @@
+.ldp-group {
+  vertical-align: top;
+
+  td:nth-child(1) {
+    padding-right: 100px;
+  }
+
+  .ldp-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+  }
+  .ldp-help {
+    font-style: italic;
+  }
+}

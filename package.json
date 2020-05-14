@@ -2,5 +2,6 @@
   "scripts": {
     "watch": "node-sass -w sass -o assets/css",
     "build": "node-sass --output-style compressed src/sass/style.scss > out/css/style.css"
-  }
+  },
+  "dependencies": {}
 }
