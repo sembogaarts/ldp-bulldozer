@@ -46,6 +46,12 @@
     .ldp-bulldozer main .content {
       background-color: #fff;
       padding: 20px; }
+    .ldp-bulldozer main #ldp-theme {
+      display: none; }
+  .ldp-bulldozer .footer {
+    text-align: center; }
+    .ldp-bulldozer .footer svg {
+      color: #311B92; }
 
 /* The switch - the box around the slider */
 .switch {
@@ -111,3 +117,13 @@ input:checked + .slider:before {
     color: black; }
   .ldp-group .ldp-help {
     font-style: italic; }
+
+.submit {
+  display: inline-block;
+  padding: 15px 40px 15px 40px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background-color: #311B92;
+  border-radius: 40px;
+  outline: none; }

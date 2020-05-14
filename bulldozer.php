@@ -1,6 +1,11 @@
 <?php
 /**
  * Plugin Name: Bulldozer
+ * Description: Just another under construction plugin. Simple but flexible.
+ * Plugin URI: https://letsdeploy.nl/plugins/bulldozer
+ * Author: Let's Deploy
+ * Version: 1.0.0
+ * Author URI: https://letsdeploy.nl
  */
 
 require "enums/bulldozer-options.php";
@@ -103,8 +108,9 @@ class LDP_BULLDOZER
     public function add_assets()
     {
         // JS
-        wp_enqueue_script('ldp-bulldozer-js', $this->_theme_dir . '/assets/js/ldp-bulldozer.js');
         wp_enqueue_script('ldp-fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js');
+        wp_enqueue_script('ldp-fontawesome', '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js');
+        wp_enqueue_script('ldp-bulldozer-js', $this->_theme_dir . '/assets/js/ldp-bulldozer.js');
         // CSS
         wp_enqueue_style('ldp-bulldozer-style', $this->_theme_dir . '/assets/css/ldp-bulldozer.css');
         wp_enqueue_style('ldp-font', '//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');

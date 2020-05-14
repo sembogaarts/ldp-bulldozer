@@ -1,5 +1,4 @@
 (function ($) {
-
     // Convert to JSON
     function toJSON(form) {
         var o = {};
@@ -16,9 +15,9 @@
         });
         return o;
     }
-
     // Stop default form submissions and send to Ajax
     function ajaxSubmit(e) {
+
         // Prevented submit
         e.preventDefault();
         // Get the target
@@ -31,8 +30,9 @@
             url: "admin-ajax.php",
             data: json,
             success: function( response ){
-                console.log("This is response...");
-                console.log(response);
+                toastr.info('Are you the 6 fingered man?');
+                console.log(toastr);
+                console.log('test');
             },
             error: function( error ){
                 console.log('AJAX error callback....');
@@ -41,12 +41,38 @@
         });
 
     }
+    // Tab switcher
+    function switchTab(e) {
+        // Get the tab
+        var content = $(this).data('tab');
+        // Hide all
+        hideAllContent();
+        // Show new
+        $(content).show();
+    }
+    function hideAllContent() {
+        // Get the tabs
+        var tabs = $('.ldp-tab');
+        // Hide all
+        $(tabs).each(i => {
+            var tab = $(tabs[i]);
+            var content = $(tab).data('tab');
+            $(content).hide();
+        });
+    }
     // Fire when the page is ready
     $(document).ready(function () {
         // Define Forms
         var settingsForm = $('#ldp-bulldozer-settings');
         // Attach events
         settingsForm.on('submit', ajaxSubmit);
+        // Define Tabs
+        var tabs = $('.ldp-tab');
+        // Hide all the content
+        $(tabs).each(function() {
+            // Open the new tab
+            $(this).on('click', switchTab);
+        });
     });
 
 })(jQuery);
