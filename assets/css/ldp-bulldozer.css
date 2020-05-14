@@ -49,7 +49,8 @@
     .ldp-bulldozer main #ldp-theme {
       display: none; }
   .ldp-bulldozer .footer {
-    text-align: center; }
+    text-align: center;
+    font-weight: bold; }
     .ldp-bulldozer .footer svg {
       color: #311B92; }
 
