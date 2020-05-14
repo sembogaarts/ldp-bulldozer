@@ -79,6 +79,7 @@ class LDP_BULLDOZER
     private function load_theme($theme)
     {
         //
+        $site_title = get_bloginfo( 'name' );
         $logo_url = $this->_theme_dir . "assets/imgs/logo_white.png";
         $gif_url = $this->random_gif('waiting');
         // Set global variables
