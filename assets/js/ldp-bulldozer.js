@@ -30,13 +30,25 @@
             url: "admin-ajax.php",
             data: json,
             success: function( response ){
-                toastr.info('Are you the 6 fingered man?');
-                console.log(toastr);
-                console.log('test');
+                // Toastify
+                Toastify({
+                    text: "Settings saved! 🎉",
+                    duration: 3000,
+                    gravity: "bottom", // `top` or `bottom`
+                    position: 'right', // `left`, `center` or `right`
+                    backgroundColor: "#311B92",
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                }).showToast();
             },
             error: function( error ){
-                console.log('AJAX error callback....');
-                console.log(error);
+                Toastify({
+                    text: "Something went wrong... 🤧",
+                    duration: 3000,
+                    gravity: "bottom", // `top` or `bottom`
+                    position: 'right', // `left`, `center` or `right`
+                    backgroundColor: "#311B92",
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                }).showToast();
             }
         });
 

@@ -57,9 +57,10 @@
             <div id="ldp-theme">
                 Theme
             </div>
-            <p class="footer">Bulldozer created with <i class="fa fa-heart"></i> by <a href="https://letdeploy.nl">Let's
-                    Deploy</a></p>
         </div>
+
+        <p class="footer">Bulldozer created with <i class="fa fa-heart"></i> by <a href="https://letdeploy.nl">Let's
+                Deploy</a></p>
 
     </main>
 

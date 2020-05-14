@@ -108,12 +108,13 @@ class LDP_BULLDOZER
     public function add_assets()
     {
         // JS
-        wp_enqueue_script('ldp-fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js');
-        wp_enqueue_script('ldp-fontawesome', '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js');
+        wp_enqueue_script('ldp-fontawesome-js', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js');
+        wp_enqueue_script('ldp-toastify-js', 'https://cdn.jsdelivr.net/npm/toastify-js');
         wp_enqueue_script('ldp-bulldozer-js', $this->_theme_dir . '/assets/js/ldp-bulldozer.js');
         // CSS
         wp_enqueue_style('ldp-bulldozer-style', $this->_theme_dir . '/assets/css/ldp-bulldozer.css');
         wp_enqueue_style('ldp-font', '//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        wp_enqueue_style('ldp-toastify-style', '//cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
     }
 
     /**

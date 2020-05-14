@@ -50,7 +50,9 @@
       display: none; }
   .ldp-bulldozer .footer {
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    color: grey;
+    padding: 20px; }
     .ldp-bulldozer .footer svg {
       color: #311B92; }
 
