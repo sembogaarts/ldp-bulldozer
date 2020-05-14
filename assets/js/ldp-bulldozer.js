@@ -49,15 +49,21 @@
         hideAllContent();
         // Show new
         $(content).show();
+        $(this).addClass('active');
     }
     function hideAllContent() {
         // Get the tabs
         var tabs = $('.ldp-tab');
         // Hide all
         $(tabs).each(i => {
+            // Select the tab
             var tab = $(tabs[i]);
+            // Get the content
             var content = $(tab).data('tab');
+            // Hide content
             $(content).hide();
+            // Remove active
+            $(tab).removeClass('active');
         });
     }
     // Fire when the page is ready
